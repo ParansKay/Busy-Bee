@@ -1,0 +1,46 @@
+.listDisplayMain{
+    background-color: white;
+    margin-top: 50px;
+}
+
+.tasks{
+   padding-top: 10px;
+   border: 1px red solid;
+}
+
+.taskRows{
+    /* padding-left: 300px;
+    padding-right: 200px; */
+    border: solid 1px blue;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* flex-direction: row; */
+    /* column-gap: 200px; */
+    /* padding: 10px 0px; */
+}
+
+.taskCol1{
+  width: 5%;
+  border: 1px solid brown;
+  margin-left: 10%;
+  margin-right: -80px;
+}
+
+.taskCol2{
+    border: 2px solid orange;
+    width: 20%;
+    /* padding-right: 40px; */
+    text-align: left;
+}
+
+.taskCol3{
+    border: 2px solid orange;
+    width: 35%;
+    /* padding-right: 40px; */
+    text-align: left;
+}
+
+.taskCol4{
+    margin-right: 10%;
+}
