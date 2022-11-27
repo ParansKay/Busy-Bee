@@ -1,6 +1,6 @@
 import {HashRouter as Router, Route} from 'react-router-dom';
 import './App.css';
-import MovieList from '../MovieList/TaskList'
+import TaskList from '../TaskList/TaskList'
 
 function App() {
   return (
@@ -8,9 +8,8 @@ function App() {
       <h1>The Busy Bee App</h1>
       <Router>        
         <Route path="/" exact>
-          <MovieList />
+          <TaskList />
         </Route>
-        {/* Add Movie page */}
       </Router>
     </div>
   );
