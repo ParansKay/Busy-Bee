@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import {useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useNavigate } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 import './TaskList.css'
@@ -37,6 +37,9 @@ function TaskList() {
                     );
                 })}
             </section>
+            <div className='addNewTodoBtnDiv'>
+                <button className='mainBtn'>Add a new to-do!</button>
+            </div>
         </main>
 
     );

@@ -15,6 +15,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeLatest('FETCH_TASKS', fetchAllTasks);
     yield takeLatest ('DELETE_TASK', deleteTask);
+    yield takeLatest ('ADD_TASK', addTask)
 }
 
 function* fetchAllTasks() {
@@ -28,17 +29,29 @@ function* fetchAllTasks() {
         console.log('get all error');
     }  
 }
-// MY ATTEMPT
+
+
 function* deleteTask(action) {
     try {
       console.log('action.payload is------>', action.payload);
-      yield axios.delete(`/api/tasks/${action.payload}`);
-      yield put({ type: 'FETCH_TASKS'});
+      yield axios.delete(`/api/tasks/${action.payload}`); 
+      yield put({ type: 'SET_TASKS'}); //updating the reducer to append the most up-to-date data to DOM
     } catch (error) {
       console.log('Task delete request failed', error);
     }
   }
 
+function* addTask(action){
+    try {
+        const newTask = yield axios.post(`/api/tasks`, {title: action.payload.title, notes: action.payload.notes});
+        console.log('adding new task:', newTask.data);
+         yield put({  
+             //once that is done, update FETCH_FAVORITES to append the most up-to-date info to the DOM
+             type: 'FETCH_TASKS'});
+     } catch (err){
+         console.log('error adding new task', err );
+     } 
+}
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();

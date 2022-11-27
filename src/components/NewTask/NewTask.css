@@ -1,0 +1,44 @@
+.newTaskModal{
+    background-color: black;
+    min-height: 300px;
+    border-radius: 10px;
+    width: 50%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: .5%;
+
+}
+
+.newTaskForm{
+    display: flex;
+    flex-direction: column;
+    /* min-width: 45%; */
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 1%; */
+}
+
+.taskTitleInput{
+    min-width: 80%;
+    margin-bottom: 2%;
+    min-height: 60px;
+}
+
+.taskDetailInput{
+    min-width: 80%;
+    margin-bottom: 1%;
+    height: 100px;
+}
+
+.scndBtn{
+    background-color: #FFCD29;
+    color: black;
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    margin-top: 30px;
+    margin-right: 10%;
+    margin-bottom: 30px;
+}

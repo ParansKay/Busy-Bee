@@ -31,4 +31,26 @@ router.delete('/:id', (req, res) => {
     })
 });
 
+router.post('/', (req, res) => {
+  //post route code goes here
+ console.log(req.body);
+ // RETURNING "id" will give us back the id of the created movie
+ const insertTaskQuery = `
+ INSERT INTO "List" ("title", "notes")
+ VALUES ($1, $2)
+ RETURNING "id";`
+
+ // FIRST QUERY MAKES ACTIVITY
+ pool.query(insertTaskQuery, [req.body.title, req.body.notes])
+ .then(result => {
+   console.log('New task Id:', result.rows[0].id); //ID IS HERE!
+       //Now that both are done, send back success!
+       res.sendStatus(201);
+     }).catch(err => {
+       // catch for second query
+       console.log(err);
+       res.sendStatus(500)
+     })
+})
+
 module.exports = router;

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const taskRouter = require('./routes/task.router.js')
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5004;
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
