@@ -22,6 +22,9 @@ function TaskList() {
           type: 'DELETE_TASK', 
           payload: id
         })
+        dispatch({
+            type:'FETCH_TASKS'
+        })
       }
 
     return (

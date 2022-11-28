@@ -20,7 +20,7 @@ router.delete('/:id', (req, res) => {
   // DELETE route code here
   console.log( 'in DELETE ROUTE with:', req.params.id);
   const queryTextDelete = `DELETE FROM "list" WHERE "id"=$1;`
-  pool.query(queryTextDelete, [req.body.id])
+  pool.query(queryTextDelete, [req.params.id])
     .then( result => {
       console.log('deleted task Id');
       // res.sendStatus(200)
@@ -36,12 +36,12 @@ router.post('/', (req, res) => {
  console.log(req.body);
  // RETURNING "id" will give us back the id of the created movie
  const insertTaskQuery = `
- INSERT INTO "List" ("title", "notes")
+ INSERT INTO "list" ("task", "notes")
  VALUES ($1, $2)
  RETURNING "id";`
 
  // FIRST QUERY MAKES ACTIVITY
- pool.query(insertTaskQuery, [req.body.title, req.body.notes])
+ pool.query(insertTaskQuery, [req.body.task, req.body.notes])
  .then(result => {
    console.log('New task Id:', result.rows[0].id); //ID IS HERE!
        //Now that both are done, send back success!

@@ -14,7 +14,7 @@ function NewTask (){
     }, []);
 
     const [newTask, setNewTask] = useState({
-        title: '',
+        task: '',
         notes: ''
     });
 
@@ -25,10 +25,10 @@ function NewTask (){
       }, []);
       };
 
-    const addTitle = (event) => {
+    const addTask = (event) => {
         //changing only the title property in newTask to the value in our input field
-        setNewTask({...newTask, title: event.target.value});
-        console.log( 'new task title is:', newTask.title );
+        setNewTask({...newTask, task: event.target.value});
+        console.log( 'new task title is:', newTask.task );
     };
 
     const addNotes = (event) => {
@@ -42,7 +42,7 @@ function NewTask (){
           <h1>What do you want to do?</h1>
           <div>
             <div className='newTaskForm'>
-                <input className='taskTitleInput' placeholder='What do you have to do?' defaultValue={newTask.title} onChange={( event )=>addTitle( event )}></input>
+                <input className='taskTitleInput' placeholder='What do you have to do?' defaultValue={newTask.task} onChange={( event )=>addTask( event )}></input>
                 <textarea className='taskDetailInput' placeholder='Gimmie notes' defaultValue={newTask.notes} onChange={(event)=>addNotes(event)}></textarea>
             </div>
             <div className='addNewTodoBtnDiv'>
