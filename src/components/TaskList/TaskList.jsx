@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory, useNavigate } from 'react-router-dom'; //must define link within each component, otherwise we get an undefined error
 import './TaskList.css'
 
-
-
 function TaskList() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -14,16 +12,24 @@ function TaskList() {
         dispatch({ type: 'FETCH_TASKS' });
     }, []);
 
+    const timer = setTimeout(()=>{
+        history.push("/");
+        }, 300);
+
+    //handle open 
+    //handle close
+
     const deleteTask = (id) => () =>{ //the extra () and => is so that convert handleDelete to a curried function to close over the post id in callback scope and return an onClick handler function.
         console.log();
         dispatch({
           type: 'DELETE_TASK', 
           payload: id
         })
-        dispatch({
-            type:'FETCH_TASKS'//after deleting a task, run FETCH_TASKS to update the dom
-        })
+        setTimeout(()=>{
+            dispatch({ type: 'FETCH_TASKS'});
+            }, 100);
       }
+
 
     return (
         <main className='listDisplayMain'>
@@ -32,6 +38,7 @@ function TaskList() {
                     return (
                         <div key={task.id} className="taskRows">
                             <h3 className='taskCol1'>X</h3>
+                            <h3 className='taskCol2'>{task.task}</h3>
                             <h3 className='taskCol3'>{task.notes}</h3>
                             <button className='taskCol4' onClick={deleteTask(task.id)}>Delete</button>
                         </div>

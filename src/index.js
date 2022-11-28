@@ -46,7 +46,7 @@ function* addTask(action){
         const newTask = yield axios.post(`/api/tasks`, {task: action.payload.task, notes: action.payload.notes});
         console.log('adding new task:', newTask.data);
          yield put({  
-             //once that is done, update FETCH_FAVORITES to append the most up-to-date info to the DOM
+             //once that is done, update FETCH_TASKS to append the most up-to-date info to the DOM
              type: 'FETCH_TASKS'});
      } catch (err){
          console.log('error adding new task', err );
