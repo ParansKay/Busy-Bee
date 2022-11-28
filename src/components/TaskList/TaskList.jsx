@@ -13,17 +13,15 @@ function TaskList() {
     useEffect(() => {
         dispatch({ type: 'FETCH_TASKS' });
     }, []);
-    
-    //the extra () and => is so that convert handleDelete to a curried function
-    // to close over the post id in callback scope and return an onClick handler function.
-    const deleteTask = (id) => () =>{
+
+    const deleteTask = (id) => () =>{ //the extra () and => is so that convert handleDelete to a curried function to close over the post id in callback scope and return an onClick handler function.
         console.log();
         dispatch({
           type: 'DELETE_TASK', 
           payload: id
         })
         dispatch({
-            type:'FETCH_TASKS'
+            type:'FETCH_TASKS'//after deleting a task, run FETCH_TASKS to update the dom
         })
       }
 
