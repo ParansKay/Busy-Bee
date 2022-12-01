@@ -96,24 +96,32 @@
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    background-color: none;
+    margin: 10% auto; /* 15% from the top and centered */
+    width: 50%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .closeDiv{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: 40px;
+    right: 20px;
   }
   
   /* The Close Button */
   .close {
-    color: #aaa;
-    float: right;
+    color: rgb(255, 255, 255);
+    flex-direction: row;
     font-size: 28px;
     font-weight: bold;
   }
   
   .close:hover,
   .close:focus {
-    color: black;
+    color: rgb(95, 95, 95);
     text-decoration: none;
     cursor: pointer;
   }

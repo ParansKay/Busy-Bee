@@ -87,8 +87,9 @@ function TaskList() {
             <div id="myModal" class="modal">
                 <div class="modal-content">
                 {/* When the user clicks on <span> (x), close the modal */}
-                <span class="close" onClick={handleClose}>&times;</span>
-               
+                <div class="closeDiv">
+                  <span class="close" onClick={handleClose}>&times;</span>    
+                </div>
                 <div><NewTask/></div>
              </div>
 
