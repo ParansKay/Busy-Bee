@@ -4,6 +4,7 @@ import { Link, useHistory, useNavigate } from 'react-router-dom'; //must define 
 import { Box, Modal } from '@mui/material';
 import './TaskList.css'
 import NewTask from '../NewTask/NewTask';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 function TaskList() {
     const dispatch = useDispatch();
@@ -41,21 +42,17 @@ function TaskList() {
         // Get the <span> element that closes the modal
         let span = document.getElementsByClassName("close")[0];
 
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onClick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-        }
-
         // When the user clicks on the button, open the modal
-        function handleModal() {
-            modal.style.display = "block";
-        }
-
-        function handleClose() {
-            modal.style.display = "none";
+        function handleModal(event) {
+            // modal.style.display = "block";
+            console.log(event.target);
+            if (event.target === modal) {
+                modal.style.display = "none";
+            } else if (event.target == span){
+                modal.style.display = "none";
+            }else {
+                modal.style.display = "block";
+            }
         }
 
     return (
@@ -64,31 +61,22 @@ function TaskList() {
                 {tasks.map(task => {
                     return (
                         <div key={task.id} className="taskRows">
-                            <h3 className='taskCol1'>X</h3>
+                            <h3 className='taskCol1'>x</h3>
                             <h3 className='taskCol2'>{task.task}</h3>
                             <h3 className='taskCol3'>{task.notes}</h3>
-                            <button className='taskCol4' onClick={deleteTask(task.id)}>Delete</button>
+                            <DeleteOutlineIcon className='taskCol4' onClick={deleteTask(task.id)}/>
                         </div>
                     );
                 })}
             </section>
-            <div className='addNewTodoBtnDiv'>
-                {/* <button className='mainBtn' onClick={handleClickOpen}>Add a new to-do!</button> */}
-                <button onClick={handleModal} id='myBtn'>Add a new to-do!</button>
+            <div className='addNewTodoBtnDiv'>              
+                <button onClick={handleModal} className='mainBtn' id='myBtn'>Add a new to-do!</button>
             </div>
-            {/* <div className='newTaskModalDiv'> */}
-                {/* <Modal
-                open={open} onClose={handleClickOpen} className="createNewTaskModal">
-                <div>
-                    <NewTask/>  
-                </div> 
-                </Modal> */}
-            {/* </div> */}
-            <div id="myModal" class="modal">
+            <div id="myModal" class="modal" onClick={handleModal}>
                 <div class="modal-content">
                 {/* When the user clicks on <span> (x), close the modal */}
                 <div class="closeDiv">
-                  <span class="close" onClick={handleClose}>&times;</span>    
+                  <span class="close">&times;</span>    
                 </div>
                 <div><NewTask/></div>
              </div>
