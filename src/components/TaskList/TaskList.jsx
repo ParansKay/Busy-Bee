@@ -53,7 +53,9 @@ function TaskList() {
                 {tasks.map(task => {
                     return (
                         <div key={task.id} className="taskRows">
-                            <input type="checkbox" className='taskCol1'/>
+                            <div className='taskCol1'>
+                                <input type="checkbox"/>
+                            </div>
                             <h3 className='taskCol2'>{task.task}</h3>
                             <h3 className='taskCol3'>{task.notes}</h3>
                             <DeleteOutlineIcon className='taskCol4' onClick={deleteTask(task.id)}/>
@@ -62,7 +64,7 @@ function TaskList() {
                 })}
             </section>
             <div className='addNewTodoBtnDiv'>              
-                <button onClick={handleModal} className='mainBtn' id='myBtn'>Add a new to-do!</button>
+                <button onClick={handleModal} className='mainBtn' id='myBtn'>Add a new task </button>
             </div>
             <div id="myModal" class="modal" onClick={handleModal}>
                 <div class="modal-content">

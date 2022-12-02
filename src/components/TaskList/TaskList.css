@@ -24,10 +24,55 @@
 
 .taskCol1{
   width: 5%;
-  border: 1px solid brown;
-  margin-left: 15%;
+  /* border: 1px solid brown; */
+  margin-left: 17%;
   margin-right: -8%;
 }
+
+input[type="checkbox"] {
+    -webkit-appearance: none; /* Add if not using autoprefixer */
+    appearance: none;/* Remove most all native input styles */
+    background-color: var(--form-background); /* For iOS < 15 */
+    /* Not removed via appearance */
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+  }
+  
+  input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+  
+  input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  }
+  
+  input[type="checkbox"]:disabled {
+    --form-control-color: var(--form-control-disabled);
+  
+    color: var(--form-control-disabled);
+    cursor: not-allowed;
+  }
 
 
 .taskCol2{
@@ -55,10 +100,24 @@
     background-color: black;
     color: white;
     border-radius: 5px;
-    padding: 10px 10px 10px 10px;
+    border: none;
+    padding: 20px;
     margin-top: 30px;
-    margin-right: 10%;
+    margin-right: 20%;
     margin-bottom: 3%;
+    font-size: large;
+}
+
+.mainBtn:hover{
+    background-color: rgb(37, 37, 37);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 20px;
+    margin-top: 30px;
+    margin-right: 20%;
+    margin-bottom: 3%;
+    font-size: large; 
 }
 
 .newTaskModalDiv{
@@ -73,11 +132,8 @@
     flex-direction: column;
     align-content: center;
     width: 50%;
-    /* align-items: center; DOESNT WORK */
     justify-content: center; 
-    /* top: 15px; */
-    /* margin-left: 25%;
-    margin-right: 25%; */
+
 }
 
 
