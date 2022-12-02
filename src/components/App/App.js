@@ -6,7 +6,7 @@ import NewTask from '../NewTask/NewTask';
 function App() {
   return (
     <div className="App">
-      <h1>The Busy Bee App</h1>
+      <h1 className='appHeader'>Here are all my tasks</h1>
       <Router>        
         <Route path="/" exact>
           <TaskList />

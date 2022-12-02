@@ -23,6 +23,10 @@ function NewTask (){
           type: 'ADD_TASK',
           payload: newTask
       }, []);
+      setNewTask({
+        task:'',
+        notes:''
+      })
       };
 
     const addTask = (event) => {

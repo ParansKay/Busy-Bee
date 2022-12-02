@@ -1,6 +1,5 @@
 .listDisplayMain{
     background-color: white;
-    margin-top: 50px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -8,7 +7,7 @@
 }
 
 .tasks{
-   padding-top: 3%;
+   /* padding-top: 3%; */
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -26,9 +25,10 @@
 .taskCol1{
   width: 5%;
   border: 1px solid brown;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-right: -8%;
 }
+
 
 .taskCol2{
     width: 20%;
@@ -44,7 +44,7 @@
 }
 
 .taskCol4{
-    margin-right: 10%;
+    margin-right: 20%;
 }
 
 .addNewTodoBtnDiv{

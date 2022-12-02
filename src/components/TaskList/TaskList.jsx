@@ -19,12 +19,6 @@ function TaskList() {
         history.push("/");
         }, 300);
 
-    //HANLDE POP-UP MODAL
-    // const [open, setOpen] = useState(false);
-    // const handleClickOpen = () => {
-    //     setOpen(!open);
-    // };
-
     const deleteTask = (id) => () =>{ //the extra () and => is so that convert handleDelete to a curried function to close over the post id in callback scope and return an onClick handler function.
         console.log();
         dispatch({
@@ -37,9 +31,7 @@ function TaskList() {
       }
 
         let modal = document.getElementById("myModal");
-        // Get the button that opens the modal
         let btn = document.getElementById("myBtn");
-        // Get the <span> element that closes the modal
         let span = document.getElementsByClassName("close")[0];
 
         // When the user clicks on the button, open the modal
@@ -61,7 +53,7 @@ function TaskList() {
                 {tasks.map(task => {
                     return (
                         <div key={task.id} className="taskRows">
-                            <h3 className='taskCol1'>x</h3>
+                            <input type="checkbox" className='taskCol1'/>
                             <h3 className='taskCol2'>{task.task}</h3>
                             <h3 className='taskCol3'>{task.notes}</h3>
                             <DeleteOutlineIcon className='taskCol4' onClick={deleteTask(task.id)}/>
