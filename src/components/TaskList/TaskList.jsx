@@ -15,9 +15,9 @@ function TaskList() {
         dispatch({ type: 'FETCH_TASKS' });
     }, []);
 
-    // const timer = setTimeout(()=>{
-    //     history.push("/");
-    //     }, 50);
+    const timer = setTimeout(()=>{
+        history.push("/");
+        }, 50);
 
     const deleteTask = (id) => () =>{ //the extra () and => is so that convert handleDelete to a curried function to close over the post id in callback scope and return an onClick handler function.
         console.log();

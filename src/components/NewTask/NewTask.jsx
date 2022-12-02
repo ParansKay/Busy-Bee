@@ -23,6 +23,10 @@ function NewTask (){
           type: 'ADD_TASK',
           payload: newTask
       }, []);
+      setNewTask({
+        task: '',
+        notes: ''
+      })
     };
 
     const addTask = (event) => {
@@ -42,8 +46,8 @@ function NewTask (){
           <h1>What do you want to do?</h1>
           <div>
             <div className='newTaskForm'>
-                <input className='taskTitleInput' placeholder='What do you have to do?' defaultValue={newTask.task} onChange={( event )=>addTask( event )}></input>
-                <textarea className='taskDetailInput' placeholder='Gimmie notes' defaultValue={newTask.notes} onChange={(event)=>addNotes(event)}></textarea>
+                <input className='taskTitleInput' placeholder='What do you have to do?' value={newTask.task} onChange={( event )=>addTask( event )}></input>
+                <textarea className='taskDetailInput' placeholder='Gimmie notes' value={newTask.notes} onChange={(event)=>addNotes(event)}></textarea>
             </div>
             <div className='addNewTodoBtnDiv'>
                 <button className='scndBtn' onClick={addNewTask}>Add a new to-do!</button>
