@@ -17,17 +17,13 @@ function NewTask (){
         task: '',
         notes: ''
     });
-
+    
     const addNewTask = (event) => {
         dispatch({ 
           type: 'ADD_TASK',
           payload: newTask
       }, []);
-      setNewTask({
-        task:'',
-        notes:''
-      })
-      };
+    };
 
     const addTask = (event) => {
         //changing only the title property in newTask to the value in our input field
